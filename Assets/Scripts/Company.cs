@@ -14,6 +14,20 @@ public class Company : MonoBehaviour
 
     public int AvailableShares { get; set; }
 
+    public Color Color
+    {
+        get
+        {
+            if(button == null)
+            {
+                Button button = GetComponentInChildren<Button>();
+                if (button != null) return button.colors.normalColor;
+                return Color.white;
+            }
+            return button.colors.normalColor;
+        }
+    }
+
     private Text priceText;
     private Button button;
 

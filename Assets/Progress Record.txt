@@ -31,3 +31,14 @@ Extra steps still needed for buy / sell behaviour:
 Next Step(s):
  - Add in concept of time, with adjustable time step, start doing basic share price adjustments
  - Figure out a way to display a graph of recent valuations
+
+11/07/2020	(2 1/2 hours)
+ - Created a project on Github, added Unity project to this
+ - Found a Project on the Unity app store to do a basic line chart
+ - Integrated this into the project and managed to get it actually displaying data
+ - Added basic concept of time (days and weeks) and added hook to start updating the chart each week
+ - Made some tweaks to graphing to adjust which side it starts to display from, hid relevant elements, ensured that lines are showing when spawned
+
+Next Step(s):
+ - Start doing price adjustments and have the graph update to show current share price rather than random value in range
+ - Prepopulate company history so the graph is not blank to begin with
