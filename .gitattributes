@@ -1,0 +1,8 @@
+* text=auto
+
+*.txt text
+*.cs text
+*.meta text
+
+*.jpg binary
+*.png binary
