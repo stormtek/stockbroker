@@ -1,0 +1,28 @@
+Simple interaction with a minimal stock market to earn money.
+
+Core player interaction: Buy shares, Sell shares, Invest in companies.
+ - Buy: choose a company, buy shares at the current market rate, max limit influenced by something (shares the company has? your reputation?)
+ - Sell: choose a company, sell shares you own at the current market rate
+ - Invest: choose a company, invest money in them, this should give you greater connection with the company somehow with some form of potential high payout in the longer term if they do well
+
+Dynamic market
+ - As shares in a company are bought the price of those shares needs to increase in a deterministic manner (X% increase per Y shares bought)
+ - As shares in a company are sold the price of those shares needs to decrease in a deterministic manner (X% decrease per Y shares sold)
+ - Investment in a company should boost excitement in the company, causing a jump in share prices (or at least a greater chance of doing so)
+ - Companies need a max and min threshold for share prices, this will help to provide guidelines for players whether buying / selling are good ideas at any given time
+   - As a company approaches the max threshold it should become more likely that they are "overvalued" and the price drops by X%, this check should be made once per time step
+   - As a company approaches the min threshold it should become more likely that they desperately innovate and cause a price jump by X%, this check should be made once per time step
+   - Excitement value re a company should cause random spikes up and down re share price too
+   - Random events need to occur that affect the excitement value (things like new products, poor product performance, new leadership, etc)
+   - At the end of each quarter there should be some effect based on performance for that quarter
+   - At the end of each financial year the min/max thresholds should be adjusted based on overall performance for the year too, to provide varied company performance and share pricing over the course of the game.
+
+The market will feel more dynamic the more players there are interacting with it. To aid this, there should be a number of autonomous players interacting with the market each time step. This will need to include buying, selling, and investing. Some varied parameters of some sort should be used to vary the random decisions being made to give a number of different feeling character types (conservative, follow the trends, big spender, etc).
+
+To keep things a little cleaner re real-time feel, prices should only change at the end of each time step. This will require keeping track of all transactions made over the course of a time step so that the actual adjustment can be easily calculated. Checks for events, overvaluation, and innovation should all be made at this time too.
+
+A natural feeling time step is a day. This should happen every few seconds. Once every 10 seconds gives 6 days per minute, and thus a year takes about an hour of game time to go through, which feels like a little bit too long. Once every 2 seconds gives 30 days per minutes, which is nicely a month per minutes, thus a year takes 12 minutes, each hour provides 5 years. A natural time span for the game would be "a lifetime", where you start as a 20-something and stop at retirement, which leads to a 40 year game which would cover ~8 hours.
+
+Re updating prices, this needs to not be too often, so that we do not have to interrupt the time steps when the player's are performing actions. I don't really want to pause in game time while doing an action, but having prices change all the time in the middle of that makes for a decision space that will be too chaotic. This is simulating a wider interaction with the stock market rather than the chaos of a trading floor. Thus updates to pricing should actually be done at the end of each week, which would be every 14 seconds, which feels like it should be time enough for decision space while still being often enough to see it changing regularly. If need be the duration of a day can be tweaked to ensure the tempo of price changes feels natural.
+
+The core of the UI should be a graph showing the performance of share prices for each company over the last X months (dependent on screen size, but quarter kind of makes sense). It also needs to be really clear a) what the current price of shares in each company is, b) how many shares you as a player have in each company, and c) how much money you currently have. It should also be easy to discover what the current thresholds for each company are, and where current share price sits within those. This should be a separate screen that graphs just that company though (or a modification to the main graph), since showing this all the time for all companies will get messy fast. The other key component is an easy way to perform each of the core user actions. Other important but less critical elements include a calendar representation of the current date, and probably an event log (social media feed style?) in a sidebar that shows references to things like events, innovation, big investments - this does not need to show every single transaction with companies, just the major ones that are going to be having a larger impact on trends and share prices.

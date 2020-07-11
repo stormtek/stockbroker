@@ -1,0 +1,33 @@
+28/06/2020 (2 hours)
+ - Started project, wrote up design brief
+ - Basic UI construction including panels for each company, player name and balance labels, and buttons for core actions
+ - Added core concepts of game manager, company and player
+ - Got basic initialistion working, including hooking company and player to relevant UI elements with updates to those values happening appropriately
+ - Core framework in place but does nothing more than connect to UI at the moment
+
+Next Step(s):
+ - Implement Buy/Save behaviour
+
+28/06/2020 (1 1/2 hours)
+ - Implemented basic screen for buying and selling of shares
+ - Hooked this screen up to interactions by the player to trigger buying and selling
+ - Included first rough pass where shares are added / removed from relevant Company linked to the player and their bank balance is modified too
+ - NOTE: no checks / balances are in place re whether they have enough money to buy shares or enough shares to sell
+ - NOTE: basic screen does not show total costs for each transaction (by company or even as a total)
+
+Extra steps still needed for buy / sell behaviour:
+ - Validation re enough money to buy or enough shares to sell
+ - Ensure that input fields can only take numeric fields (should just be ignoring non-numeric values at the moment)
+ - Include totals (by company and overall) on the transaction screen, complete with +/- notation (and colouring?) in relevant direction
+ - Track number of shares moved since last price update in the Company (hook is in place but does nothing so far)
+
+04/07/2020 (1 hour)
+ - Updated buy/sell screen to include dropdowns for values rather than text boxes
+ - Added total/subtotal fields to track costs of various selected transactions on buy/sell screen
+ - Added concept of max available shares a company has and made sure this is being adjusted on buy/sell action from player
+ - This wraps up the core behaviour of Buy/Save for now, there is enough here to be functional at this early stage from an interaction perspective
+ - NOTE: technically the player can go into debt buying shares, this could actually be an interesting feature, so keep in for now, there should be a penalty each quarter if you are in debt though
+
+Next Step(s):
+ - Add in concept of time, with adjustable time step, start doing basic share price adjustments
+ - Figure out a way to display a graph of recent valuations
